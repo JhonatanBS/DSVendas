@@ -1,4 +1,3 @@
-import { type } from 'os';
 import Chart from 'react-apexcharts';
 import axios from 'axios';
 import { Base_URL } from 'utils/requests';
@@ -34,7 +33,7 @@ const BarChart = () => {
     });
 
     useEffect(() => {
-        axios.get(`${Base_URL}/sales/sucess-by-seller`)
+        axios.get(`${Base_URL}/sales/success-by-seller`)
         .then(response =>{
             const data = response.data as SaleSucess[];
             const myLabels = data.map(x => x.sellerName);
@@ -62,18 +61,6 @@ const BarChart = () => {
             }
         },
     };
-    
-    /*const mockData = {
-        labels: {
-            categories: ['Anakin', 'Barry Allen', 'Kal-El', 'Logan', 'Padmé']
-        },
-        series: [
-            {
-                name: "% Sucesso",
-                data: [43.6, 67.1, 67.7, 45.6, 71.1]                   
-            }
-        ]
-    };*/
     
     return (
         <Chart
